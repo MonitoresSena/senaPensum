@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admin'], function(){
+	# ruta de roles
+	Route::resource('roles', 'RolesController');
+	Route::resource('usuarios', 'UsuariosController');
+
+	Route::get('usuarios/{id}/destroy', [
+		'uses' => 'UsuariosController@destroy',
+		'as' => 'admin.usuarios.destroy',
+	]);
+});
