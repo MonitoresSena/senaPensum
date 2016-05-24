@@ -99,11 +99,13 @@
 
 			var select = jQuery("#rol_id").select2('destroy');
 			var opt = jQuery("<option/>", {value: obj.id});
+			
 			opt.html(obj.texto);
 			select.append(opt);
 			select.select2({
 				width: '100%',
 			});
+
 			setTimeout(function(){
 				select.select2('open');
 			}, 400);

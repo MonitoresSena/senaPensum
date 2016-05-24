@@ -37,4 +37,25 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'RolesController@destroy',
 		'as' => 'admin.roles.destroy',
 	]);
+
 });
+
+Route::get("home", [
+	'uses' => "HomeController@index",
+	'as' => 'home',
+]);
+
+Route::get('login', [
+	'uses' => 'HomeController@login',
+	'as' => 'login'
+]);
+
+Route::post('login/entrar', [
+	'uses' => 'HomeController@entrar',
+	'as' => 'login'
+]);
+
+Route::get("salir", [
+	'uses' => 'HomeController@salir',
+	'as' => 'salir',
+]);
