@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
+	Route::resource('Instructores', 'InstructoresController');
 
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
@@ -37,4 +38,10 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'RolesController@destroy',
 		'as' => 'admin.roles.destroy',
 	]);
+
+	Route::get('Instructores/{id}/destroy', [
+		'uses' => 'InstructoresController@destroy',
+		'as' => 'admin.Instructores.destroy',
+	]);
+
 });
