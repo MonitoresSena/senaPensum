@@ -136,9 +136,15 @@ class UsuariosController extends Controller
     }
 
     public function storeAjx(Request $request){
-        var_dump($request->saludo);exit();
+        
+        $rol = new Rol();
+        $rol->nombre = $request->new_role;
+
+        $error = $rol->save();        
+
         return response()->json([
-                'msg' => 'Okas!!aaaa'
+                'id' => !$error? 0 : $rol->id,
+                'texto' => !$error? "" : $rol->nombre,
             ]);
     }
 }
