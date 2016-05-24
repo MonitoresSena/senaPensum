@@ -12,7 +12,7 @@
 			</div>
 			<table class="table table-hover table-bordered">
 				<tr><th>E-mail</th><td>{{ $usuario->email }}</td></tr>
-				<tr><th>Rol</th><td>{{ $usuario->role_id }}</td></tr>
+				<tr><th>Rol</th><td>{{ $usuario->Rol->nombre }}</td></tr>
 			</table>
 			<div class="panel-footer">
 				<div class="form-group">

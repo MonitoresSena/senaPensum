@@ -13,10 +13,10 @@
 			<tr>
 				<th>#</th>
 				<th>Nombre</th>
+				<th>Rol</th>
 				<th>E-mail</th>
-				<th>Estado</th>
-				<!-- <th>Rol</th> -->
-				<th>Acciones</th>
+				<th class="text-center">Estado</th>
+				<th class="col-sm-1">Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,17 +24,24 @@
 			<tr>
 				<td>{{ $usuario->id }}</td>
 				<td>{{ $usuario->name }}</td>
+				<td>{{ $usuario->Rol->nombre }}</td>
 				<td>{{ $usuario->email }}</td>
-				<td>{{ $usuario->state }}</td>
-				<!-- <td></td> -->
 				<td class="text-center">
-					<a title="Editar" href="{{ route('admin.usuarios.show', $usuario->id) }}" class="btn btn-default">
+					@if($usuario->state == 1)
+					<span class="label label-success">Activo</span>
+					@else
+					<span class="label label-default">Inactivo</span>
+					@endif
+					
+				</td>
+				<td class="text-center col-options">
+					<a title="Editar" href="{{ route('admin.usuarios.show', $usuario->id) }}" class="">
 						<i class="fa fa-eye"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning">
+					<a title="Editar" href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
+					<a title="Editar" href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>

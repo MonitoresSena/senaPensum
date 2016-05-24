@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
 Route::group(['prefix' => 'admin'], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
@@ -23,5 +26,15 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as' => 'admin.usuarios.destroy',
+	]);
+
+	Route::post('usuarios/storeAjx', [
+			'uses' => 'UsuariosController@storeAjx',
+			'as' => 'admin.usuarios.storeAjx'
+	]);
+
+	Route::get('roles/{id}/destroy',[
+		'uses' => 'RolesController@destroy',
+		'as' => 'admin.roles.destroy',
 	]);
 });

@@ -17,7 +17,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {        
-        $usuarios = User::orderBy('id', 'ASC')->paginate(5);
+        $usuarios = User::orderBy('id', 'DESC')->paginate(5);
         return view('usuarios.index')
                 ->with('usuarios', $usuarios);
     }
@@ -55,6 +55,8 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         $usuario = new User($request->all());
+        $usuario->password = bcrypt($usuario->password);
+
         if($usuario->save()){
             return redirect('admin/usuarios');
         } else {
@@ -105,7 +107,7 @@ class UsuariosController extends Controller
         $usuario = User::find($id);
         $usuario->name = $request->name;
         $usuario->email = $request->email;
-        $usuario->role_id = $request->role_id;
+        $usuario->rol_id = $request->rol_id;
 
         if($usuario->save()){
             return redirect('admin/usuarios');
@@ -131,5 +133,12 @@ class UsuariosController extends Controller
             throw new Exception("Error al eliminar el registro", 1);
             
         }
+    }
+
+    public function storeAjx(Request $request){
+        var_dump($request->saludo);exit();
+        return response()->json([
+                'msg' => 'Okas!!aaaa'
+            ]);
     }
 }
