@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\User;
-use App\Rol;
 
-class UsuariosController extends Controller
+class SectorsController extends Controller
 {
     /**
      * Display a listing of the resource.
