@@ -8,7 +8,7 @@ class Program extends Model
 {
     protected $table = "training_programs";
 
-   protected $fillable = ['id_programa','nombre','estado','version','codigo','fecha_inicio','fecha_fin','dur_lectiva','dur_practica','justificacion','requisitos','descripcion','ocupaciones','resultados_practica','proyecto_formativo','url_proyecto_formativo','id_competencias'];
+   protected $fillable = ['id','nombre','estado','version','codigo','fecha_inicio','fecha_fin','dur_lectiva','dur_practica','justificacion','requisitos','descripcion','ocupaciones','resultados_practica','proyecto_formativo','url_proyecto_formativo','id_competencias'];
 
    public function area(){
    		return $this->belogsTo('App\Area')

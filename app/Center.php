@@ -8,7 +8,7 @@ class Center extends Model
 {
     protected $table = "formation_centers";
 
-   protected $fillable = ['id_centro','nombre','id_sector','id_municipio'];
+   protected $fillable = ['id','nombre','descripcion','id_municipio','id_sector'];
 
    public function company(){
    		return $this->belogsTo('App\Company')

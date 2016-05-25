@@ -8,7 +8,7 @@ class Company extends Model
 {
    protected $table = "companies";
 
-   protected $fillable = ['id','nombre','id_centro','descripcion'];
+   protected $fillable = ['id','nombre','descripcion','id_centro'];
 
    public function centers(){
    		return $this->hasMany('App\Center');

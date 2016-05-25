@@ -8,7 +8,7 @@ class Area extends Model
 {
     protected $table = "areas";
 
-   protected $fillable = ['id_area','nombre','id_programa'];
+   protected $fillable = ['id','nombre','id_programa'];
 
    public function sector(){
    		return $this->belogsTo('App\Sector')

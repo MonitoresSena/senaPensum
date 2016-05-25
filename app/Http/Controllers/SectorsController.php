@@ -15,18 +15,9 @@ class SectorsController extends Controller
      */
     public function index()
     {        
-        $usuarios = User::orderBy('id', 'ASC')->paginate(5);
-        return view('usuarios.index')
-                ->with('usuarios', $usuarios);
-    }
-
-    private function getRolesSelect(){
-        $rolesModel = Rol::all();
-        $roles = ['' => 'Seleccione un rol'];
-        foreach ($rolesModel as $rol) {
-            $roles[$rol->id] = $rol->nombre;
-        }
-        return $roles;
+        $sectors = User::orderBy('id', 'ASC')->paginate(5);
+        return view('sector.index')
+                ->with('sectors', $sectores);
     }
 
     /**
@@ -37,11 +28,10 @@ class SectorsController extends Controller
     public function create()
     {    
 
-        $usr = new User();
+        $sec = new User();
 
-        return view('usuarios.create')
-                ->with('usuario', $usr)
-                ->with('rolesOpc', $this->getRolesSelect());
+        return view('sector.create')
+                ->with('sector', $sec)
     }
 
     /**
@@ -52,12 +42,12 @@ class SectorsController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = new User($request->all());
-        if($usuario->save()){
-            return redirect('admin/usuarios');
+        $sector = new User($request->all());
+        if($sector->save()){
+            return redirect('admin/sectors');
         } else {
-            return view('usuarios.create')
-                ->with('usuario', $usr)
+            return view('sectors.create')
+                ->with('sector', $sec)
                 ->with('rolesOpc', $this->getRolesSelect());
         }
     }
@@ -70,10 +60,10 @@ class SectorsController extends Controller
      */
     public function show($id)
     {
-        $usr = User::find($id);
+        $sec = User::find($id);
         
-        return view('usuarios.view')
-                ->with('usuario', $usr);
+        return view('sectors.view')
+                ->with('sector', $sec);
     }
 
     /**
@@ -84,9 +74,9 @@ class SectorsController extends Controller
      */
     public function edit($id)
     {
-        $usr = User::find($id);
-        return view('usuarios.update')
-                ->with('usuario', $usr)
+        $sec = User::find($id);
+        return view('sectors.update')
+                ->with('sector', $sec)
                 ->with('rolesOpc', $this->getRolesSelect());
     }
 
@@ -100,17 +90,14 @@ class SectorsController extends Controller
     public function update(Request $request, $id)
     {
 
-        $usuario = User::find($id);
-        $usuario->name = $request->name;
-        $usuario->email = $request->email;
-        $usuario->role_id = $request->role_id;
+        $sector = User::find($id);
+        $sector->nombre = $request->nombre;
 
-        if($usuario->save()){
-            return redirect('admin/usuarios');
+        if($sector->save()){
+            return redirect('admin/sectors');
         } else {
-            return view('usuarios.update')
-                ->with('usuario', $usr)
-                ->with('rolesOpc', $this->getRolesSelect());
+            return view('sectors.update')
+                ->with('sector', $sec)
         }
     }
 
@@ -122,9 +109,9 @@ class SectorsController extends Controller
      */
     public function destroy($id)
     {
-        $usr = User::find($id);
-        if($usr->delete()){
-            return redirect('admin/usuarios');
+        $sec = User::find($id);
+        if($sec->delete()){
+            return redirect('admin/sectors');
         } else {
             throw new Exception("Error al eliminar el registro", 1);
             

@@ -1,16 +1,12 @@
-{!! Form::open(['route' => !$comp->exists? 'admin.companies.store' : ['admin.companies.update', $comp->id_empresa], 'method' => 'PUT']) !!}
+{!! Form::open(['route' => !$ara->exists? 'admin.areas.store' : ['admin.areas.update', $ara->id], 'method' => 'PUT']) !!}
 
 <div class="form-group">
 	{!! Form::label('nombre', 'Nombre') !!}
-	{!! Form::text('nombre', $comp->nombre, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la Compañía', 'autofocus' => true]) !!}
+	{!! Form::text('nombre', $ara->nombre, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la Compañía', 'autofocus' => true]) !!}
 </div>
 
-<div class="form-group">
-	{!! Form::label('email', 'E-mail') !!}
-	{!! Form::text('email', $comp->email, ['class' => 'form-control', 'placeholder' => 'Ingrese el correo electrónico del comp']) !!}
-</div>
 
-@if(!$comp->exists)
+@if(!$ara->exists)
 
 <div class="form-group">
 	{!! Form::label('password', 'Contraseña') !!}
@@ -22,13 +18,13 @@
 <div class="form-group">
 	<div class="row">		
 		<div class="col-sm-6">					
-			<button class="btn btn-{{ $comp->exists? "primary" : "success" }} btn-block">
-				{{ $comp->exists? "Actualizar" : "Guardar" }}
+			<button class="btn btn-{{ $ara->exists? "primary" : "success" }} btn-block">
+				{{ $ara->exists? "Actualizar" : "Guardar" }}
 				 <i class="fa fa-floppy-o"></i>				
 			</button>
 		</div>
 		<div class="col-sm-6">		
-			<a href="{{ route('admin.companies.index') }}" class="btn btn-default btn-block">
+			<a href="{{ route('admin.areas.index') }}" class="btn btn-default btn-block">
 				Cancelar <i class="fa fa-remove"></i>
 			</a>		
 		</div>

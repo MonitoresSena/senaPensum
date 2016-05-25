@@ -10,6 +10,11 @@
 	{!! Form::text('municipio', $centro->municipio, ['class' => 'form-control', 'placeholder' => 'Ingrese el municipio al que pertenece el centro']) !!}
 </div>
 
+<div class="form-group">
+	{!! Form::label('descripcion', 'Descripción') !!}
+	{!! Form::text('municipio', $centro->descripcion, ['class' => 'form-control', 'placeholder' => 'Ingrese descripción del centro']) !!}
+</div>
+
 
 
 @if(!$centro->exists)

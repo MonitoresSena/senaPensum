@@ -1,16 +1,11 @@
-{!! Form::open(['route' => !$usuario->exists? 'admin.usuarios.store' : ['admin.usuarios.update', $usuario->id], 'method' => 'PUT']) !!}
+{!! Form::open(['route' => !$sector->exists? 'admin.sectors.store' : ['admin.sectors.update', $sector->id], 'method' => 'PUT']) !!}
 
 <div class="form-group">
-	{!! Form::label('name', 'Nombre') !!}
-	{!! Form::text('name', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de usuario', 'autofocus' => true]) !!}
+	{!! Form::label('nombre', 'Nombre') !!}
+	{!! Form::text('nombre', $sector->nombre, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del sector', 'autofocus' => true]) !!}
 </div>
 
-<div class="form-group">
-	{!! Form::label('email', 'E-mail') !!}
-	{!! Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Ingrese el correo electrónico del usuario']) !!}
-</div>
-
-@if(!$usuario->exists)
+@if(!$sector->exists)
 
 <div class="form-group">
 	{!! Form::label('password', 'Contraseña') !!}
@@ -20,20 +15,15 @@
 @endif
 
 <div class="form-group">
-	{!! Form::label('role_id', 'Rol') !!}
-	{!! Form::select('role_id', $rolesOpc, $usuario->role_id, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
 	<div class="row">		
 		<div class="col-sm-6">					
-			<button class="btn btn-{{ $usuario->exists? "primary" : "success" }} btn-block">
-				{{ $usuario->exists? "Actualizar" : "Guardar" }}
+			<button class="btn btn-{{ $sector->exists? "primary" : "success" }} btn-block">
+				{{ $sector->exists? "Actualizar" : "Guardar" }}
 				 <i class="fa fa-floppy-o"></i>				
 			</button>
 		</div>
 		<div class="col-sm-6">		
-			<a href="{{ route('admin.usuarios.index') }}" class="btn btn-default btn-block">
+			<a href="{{ route('admin.sectors.index') }}" class="btn btn-default btn-block">
 				Cancelar <i class="fa fa-remove"></i>
 			</a>		
 		</div>
