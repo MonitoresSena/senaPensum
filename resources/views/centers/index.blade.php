@@ -1,9 +1,9 @@
 @extends('templates.main')
-@section('title', 'Listado de Usuarios')
+@section('title', 'Listado de Centros')
 @section('content')
 	
 	<div class="form-group">
-		<a class="btn btn-primary" href="{{ route('admin.usuarios.create') }}">
+		<a class="btn btn-primary" href="{{ route('admin.centers.create') }}">
 			Registrar <i class="fa fa-user"></i>
 		</a>
 	</div>
@@ -13,28 +13,26 @@
 			<tr>
 				<th>#</th>
 				<th>Nombre</th>
-				<th>E-mail</th>
-				<th>Estado</th>
-				<!-- <th>Rol</th> -->
-				<th>Acciones</th>
+				<th>Descripción</th>
+				<th>Empresa Relacionada</th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($usuarios AS $usuario)
+			@foreach($centers AS $center)
 			<tr>
-				<td>{{ $usuario->id }}</td>
-				<td>{{ $usuario->name }}</td>
-				<td>{{ $usuario->email }}</td>
-				<td>{{ $usuario->state }}</td>
+				<td>{{ $center->id }}</td>
+				<td>{{ $center->nombre }}</td>
+				<td>{{ $center->descripcion }}</td>
+				<td>{{ $center->id_company }}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
-					<a title="Editar" href="{{ route('admin.usuarios.show', $usuario->id) }}" class="btn btn-default">
+					<a title="Editar" href="{{ route('admin.centers.show', $center->id) }}" class="btn btn-default">
 						<i class="fa fa-eye"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning">
+					<a title="Editar" href="{{ route('admin.centers.edit', $center->id) }}" class="btn btn-warning">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
+					<a title="Editar" href="{{ route('admin.centers.destroy', $center->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>
@@ -42,5 +40,5 @@
 			@endforeach
 		</tbody>
 	</table>
-	{!! $usuarios->render() !!}
+	{!! $centers->render() !!}
 @endsection

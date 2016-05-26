@@ -1,9 +1,9 @@
 @extends('templates.main')
-@section('title', 'Listado de Usuarios')
+@section('title', 'Listado de Rrogramas')
 @section('content')
 	
 	<div class="form-group">
-		<a class="btn btn-primary" href="{{ route('admin.usuarios.create') }}">
+		<a class="btn btn-primary" href="{{ route('admin.programs.create') }}">
 			Registrar <i class="fa fa-user"></i>
 		</a>
 	</div>
@@ -12,29 +12,32 @@
 		<thead>
 			<tr>
 				<th>#</th>
+				<th>Codigo</th>
 				<th>Nombre</th>
-				<th>E-mail</th>
-				<th>Estado</th>
-				<!-- <th>Rol</th> -->
+				<th>Versión</th>
+				<th>Descripción</th>
+				<th>Proyecto Formativo</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($usuarios AS $usuario)
+			@foreach($programs AS $program)
 			<tr>
-				<td>{{ $usuario->id }}</td>
-				<td>{{ $usuario->name }}</td>
-				<td>{{ $usuario->email }}</td>
-				<td>{{ $usuario->state }}</td>
+				<td>{{ $program->id }}</td>
+				<td>{{ $program->codigo }}</td>
+				<td>{{ $program->nombre }}</td>
+				<td>{{ $program->version }}</td>
+				<td>{{ $program->descripcion }}</td>
+				<td>{{ $program->proyecto_formativo }}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
-					<a title="Editar" href="{{ route('admin.usuarios.show', $usuario->id) }}" class="btn btn-default">
+					<a title="Editar" href="{{ route('admin.programs.show', $program->id) }}" class="btn btn-default">
 						<i class="fa fa-eye"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning">
+					<a title="Editar" href="{{ route('admin.programs.edit', $program->id) }}" class="btn btn-warning">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
+					<a title="Editar" href="{{ route('admin.programs.destroy', $program->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>
@@ -42,5 +45,5 @@
 			@endforeach
 		</tbody>
 	</table>
-	{!! $usuarios->render() !!}
+	{!! $programs->render() !!}
 @endsection

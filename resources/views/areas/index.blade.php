@@ -1,9 +1,9 @@
 @extends('templates.main')
-@section('title', 'Listado de Usuarios')
+@section('title', 'Listado de Areas')
 @section('content')
 	
 	<div class="form-group">
-		<a class="btn btn-primary" href="{{ route('admin.usuarios.create') }}">
+		<a class="btn btn-primary" href="{{ route('admin.areas.create') }}">
 			Registrar <i class="fa fa-user"></i>
 		</a>
 	</div>
@@ -13,28 +13,23 @@
 			<tr>
 				<th>#</th>
 				<th>Nombre</th>
-				<th>E-mail</th>
-				<th>Estado</th>
-				<!-- <th>Rol</th> -->
 				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($usuarios AS $usuario)
+			@foreach($areas AS $area)
 			<tr>
-				<td>{{ $usuario->id }}</td>
-				<td>{{ $usuario->name }}</td>
-				<td>{{ $usuario->email }}</td>
-				<td>{{ $usuario->state }}</td>
+				<td>{{ $area->id }}</td>
+				<td>{{ $area->nombre }}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
-					<a title="Editar" href="{{ route('admin.usuarios.show', $usuario->id) }}" class="btn btn-default">
+					<a title="Editar" href="{{ route('admin.areas.show', $area->id) }}" class="btn btn-default">
 						<i class="fa fa-eye"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.edit', $usuario->id) }}" class="btn btn-warning">
+					<a title="Editar" href="{{ route('admin.areas.edit', $area->id) }}" class="btn btn-warning">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.usuarios.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
+					<a title="Editar" href="{{ route('admin.areas.destroy', $area->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>
@@ -42,5 +37,5 @@
 			@endforeach
 		</tbody>
 	</table>
-	{!! $usuarios->render() !!}
+	{!! $areas->render() !!}
 @endsection

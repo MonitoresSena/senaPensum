@@ -1,10 +1,10 @@
 @extends('templates.main')
-@section('title', 'Actualizar Usuario')
+@section('title', 'Actualizar Centro')
 @section('content')
 	<div class="page-header">
-		<h3>Actualizar Usuario</h3>
+		<h3>Actualizar Centro</h3>
 	</div>
 	<div class="col-sm-6">		
-		@include('usuarios.partials.form')
+		@include('centers.partials.form')
 	</div>
 @endsection
