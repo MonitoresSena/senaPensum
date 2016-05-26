@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Instructor;
+use App\Competencia;
 
-class InstructoresController extends Controller
+class CompetenciasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class InstructoresController extends Controller
      */
     public function index()
     {
-        $Instructores = Instructor::orderBy('id', 'DESC')
+         $Competencias = Competencia::orderBy('id', 'DESC')
                 ->paginate(5);
-        return view('instructores.index')
-                ->with('Instructores', $Instructores);
+        return view('Competencias.index')
+                ->with('Competencias', $Competencias);
     }
 
     /**
@@ -29,9 +29,9 @@ class InstructoresController extends Controller
      */
     public function create()
     {
-        $Instruct = new Instructor();
-        return view('Instructores.create')
-                ->with('Instruct', $Instruct);
+    $Compet = new Competencia();
+        return view('Competencias.create')
+                ->with('Compet', $Compet);
     }
 
     /**
@@ -42,13 +42,14 @@ class InstructoresController extends Controller
      */
     public function store(Request $request)
     {
-        $Instruct = new Instructor($request->all());
-        if($Instruct->save()){
-            return redirect('admin/Instructores');
+          $Compet = new Competencia($request->all());
+        if($Compet->save()){
+            return redirect('admin/Competencias');
         }else{
-            return view('Instructores.index')
-                ->with('Instructores', $Instructores);
+            return view('Competencias.index')
+                ->with('Competencias', $Competencias);
         }
+
     }
 
     /**
@@ -59,9 +60,9 @@ class InstructoresController extends Controller
      */
     public function show($id)
     {
-        $Instruct = Instructor::find($id);
-        return view('Instructores.view')
-                ->with('Instruct', $Instruct);
+             $Compet = Competencia::find($id);
+        return view('Competencias.view')
+                ->with('Compet', $Compet);
     }
 
     /**
@@ -72,9 +73,9 @@ class InstructoresController extends Controller
      */
     public function edit($id)
     {
-        $Instruct = Instructor::find($id);
-        return view('Instructores.update')
-                ->with('Instruct', $Instruct);
+        $Compet = Competencia::find($id);
+        return view('Competencias.update')
+                ->with('Compet', $Compet);
     }
 
     /**
@@ -86,17 +87,17 @@ class InstructoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $Instruct = Instructor::find($id);
-        $Instruct->Nombre = $request->Nombre;
-        $Instruct->Apellido = $request->Apellido;
-        $Instruct->Identificacion = $request->Identificacion;
-        $Instruct->Email = $request->Email;
+          $Compet = Competencia::find($id);
+        $Compet->Codigo = $request->Codigo;	
+        $Compet->Denominacion = $request->Denominacion;
+        $Compet->Duracion = $request->Duracion;
+        $Compet->Estado = $request->Estado;
 
-        if($Instruct->save()){
-            return redirect('admin/Instructores');
+        if($Compet->save()){
+            return redirect('admin/Competencias');
         }else{
-            return view('Instructores.index')
-                ->with('Instructores', $Instructores);
+            return view('Competencias.index')
+                ->with('Competencias', $Competencias);
         }
     }
 
@@ -108,10 +109,11 @@ class InstructoresController extends Controller
      */
     public function destroy($id)
     {
-          $Instruct = Instructor::find($id);
         
-        if($Instruct->delete()){
-            return redirect('admin/Instructores');
+          $Compet = Competencia::find($id);
+        
+        if($Compet->delete()){
+            return redirect('admin/Competencias');
         }else{
             throw new Exception("Error al eliminar el registro", 1);
             

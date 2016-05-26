@@ -23,6 +23,10 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
 	Route::resource('Instructores', 'InstructoresController');
+	Route::resource('Competencias', 'CompetenciasController');
+	Route::resource('Resultados', 'ResultadosController');
+	Route::resource('Unidades', 'UnidadController');
+
 
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
@@ -42,6 +46,21 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('Instructores/{id}/destroy', [
 		'uses' => 'InstructoresController@destroy',
 		'as' => 'admin.Instructores.destroy',
+	]);
+
+	Route::get('Competencias/{id}/destroy', [
+		'uses' => 'CompetenciasController@destroy',
+		'as' => 'admin.Competencias.destroy',
+	]);
+
+	Route::get('Resultados/{id}/destroy', [
+		'uses' => 'ResultadosController@destroy',
+		'as' => 'admin.Resultados.destroy',
+	]);
+
+	Route::get('Unidades/{id}/destroy', [
+		'uses' => 'UnidadController@destroy',
+		'as' => 'admin.Unidades.destroy',
 	]);
 
 });

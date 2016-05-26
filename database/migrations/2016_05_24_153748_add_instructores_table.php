@@ -12,13 +12,14 @@ class AddInstructoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('instructores', function (Blueprint $table) {
+            Schema::create('instructores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Nombre',30);
             $table->string('Apellido',30);
-            $table->integer('Identificacion');
+            $table->bigInteger('Identificacion');
             $table->string('Email',30);
-            $table->timestamps();   
+            $table->timestamps();  
+
         });
     }
 
