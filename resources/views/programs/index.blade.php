@@ -21,23 +21,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($programs AS $program)
+			@foreach($programs AS $prog)
 			<tr>
-				<td>{{ $program->id }}</td>
-				<td>{{ $program->codigo }}</td>
-				<td>{{ $program->nombre }}</td>
-				<td>{{ $program->version }}</td>
-				<td>{{ $program->descripcion }}</td>
-				<td>{{ $program->proyecto_formativo }}</td>
+				<td>{{ $prog->id }}</td>
+				<td>{{ $prog->codigo }}</td>
+				<td>{{ $prog->nombre }}</td>
+				<td>{{ $prog->version }}</td>
+				<td>{{ $prog->descripcion }}</td>
+				<td>{{ $prog->proyecto_formativo }}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
-					<a title="Editar" href="{{ route('admin.programs.show', $program->id) }}" class="btn btn-default">
+					<a title="Editar" href="{{ route('admin.programs.show', $prog->id) }}" class="btn btn-default">
 						<i class="fa fa-eye"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.programs.edit', $program->id) }}" class="btn btn-warning">
+					<a title="Editar" href="{{ route('admin.programs.edit', $prog->id) }}" class="btn btn-warning">
 						<i class="fa fa-pencil"></i>
 					</a>
-					<a title="Editar" href="{{ route('admin.programs.destroy', $program->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
+					<a title="Editar" href="{{ route('admin.programs.destroy', $prog->id) }}" onclick="return confirm('¿Seguro que deseas eliminar este registro?')" class="btn btn-danger">
 						<i class="fa fa-trash"></i>
 					</a>
 				</td>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Program;
+
 class ProgramsController extends Controller
 {
     /**
@@ -15,9 +17,9 @@ class ProgramsController extends Controller
      */
     public function index()
     {        
-        $programs = PorderBy('id_programa', 'ASC')->paginate(10);
-        return view('program.index')
-                ->with('program', $programs);
+        $programs = program::orderBy('id', 'ASC')->paginate(10);
+        return view('programs.index')
+                ->with('programs', $programs);
     }
 
     /**
@@ -30,8 +32,8 @@ class ProgramsController extends Controller
 
         $prog = new program();
 
-        return view('program.create')
-                ->with('program', $prog);
+        return view('programs.create')
+                ->with('prog', $prog);
     }
 
     /**
@@ -44,10 +46,10 @@ class ProgramsController extends Controller
     {
         $prog = new program($request->all());
         if($prog->save()){
-            return redirect('admin/program');
+            return redirect('admin/programs');
         } else {
-            return view('program.create')
-                ->with('program', $prog);
+            return view('programs.create')
+                ->with('prog', $prog);
 
         }
     }
@@ -58,12 +60,12 @@ class ProgramsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_programa)
+    public function show($id)
     {
-        $prog = Program::find($id_programa);
+        $prog = Program::find($id);
         
         return view('program.view')
-                ->with('program', $prog);
+                ->with('prog', $prog);
     }
 
     /**
@@ -72,11 +74,11 @@ class ProgramsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_programa)
+    public function edit($id)
     {
-        $prog = Program::find($id_programa);
-        return view('program.update')
-                ->with('program', $prog);
+        $prog = Program::find($id);
+        return view('programs.update')
+                ->with('prog', $prog);
     }
 
     /**
@@ -88,32 +90,32 @@ class ProgramsController extends Controller
 
      'codigo','fecha_inicio','fecha_fin','dur_lectiva','dur_practica','justificacion','requisitos','descripcion','ocupaciones','resultados_practica','proyecto_fotmativo','url_proyecto_formativo','id_competencias'
      */
-    public function update(Request $request, $id_programa)
+    public function update(Request $request, $id)
     {
 
-        $program = Program::find($id_programa);
-        $program->nombre = $request->nombre;
-        $program->version = $request->version;
-        $program->codigo = $request->codigo;
-        $program->requisitos = $request->requisitos;
-        $program->estado = $request->estado;
-        $program->fecha_inicio = $request->fecha_inicio;
-        $program->fecha_fin = $request->fecha_fin;
-        $program->dur_lectiva = $request->dur_lectiva;
-        $program->dur_practica = $request->dur_practica;
-        $program->justificacion = $request->justificacion;
-        $program->descripcion = $request->descripcion;
-        $program->ocupaciones = $request->ocupaciones;
-        $program->resultados_practica = $request->resultados_practica;
-        $program->proyecto_formativo = $request->proyecto_formativo;
-        $program->url_proyecto_formativo = $request->url_proyecto_formativo;
+        $prog = Program::find($id);
+        $prog->nombre = $request->nombre;
+        $prog->version = $request->version;
+        $prog->codigo = $request->codigo;
+        $prog->requisitos = $request->requisitos;
+        $prog->estado = $request->estado;
+        $prog->fecha_inicio = $request->fecha_inicio;
+        $prog->fecha_fin = $request->fecha_fin;
+        $prog->dur_lectiva = $request->dur_lectiva;
+        $prog->dur_practica = $request->dur_practica;
+        $prog->justificacion = $request->justificacion;
+        $prog->descripcion = $request->descripcion;
+        $prog->ocupaciones = $request->ocupaciones;
+        $prog->resultados_practica = $request->resultados_practica;
+        $prog->proyecto_formativo = $request->proyecto_formativo;
+        $prog->url_proyecto_formativo = $request->url_proyecto_formativo;
 
 
-        if($program->save()){
-            return redirect('admin/program');
+        if($prog->save()){
+            return redirect('admin/programs');
         } else {
-            return view('program.update')
-                ->with('program', $prog);
+            return view('programs.update')
+                ->with('prog', $prog);
 
         }
     }
@@ -124,11 +126,11 @@ class ProgramsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_programa)
+    public function destroy($id)
     {
-        $prog = Program::find($id_programa);
+        $prog = Program::find($id);
         if($prog->delete()){
-            return redirect('admin/program');
+            return redirect('admin/programs');
         } else {
             throw new Exception("Error al eliminar el registro", 1);
             

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Sector;
+
 class SectorsController extends Controller
 {
     /**
@@ -15,8 +17,8 @@ class SectorsController extends Controller
      */
     public function index()
     {        
-        $sectors = User::orderBy('id', 'ASC')->paginate(5);
-        return view('sector.index')
+        $sectors = Sector::orderBy('id', 'ASC')->paginate(5);
+        return view('sectors.index')
                 ->with('sectors', $sectores);
     }
 
@@ -28,10 +30,10 @@ class SectorsController extends Controller
     public function create()
     {    
 
-        $sec = new User();
+        $sec = new Sector();
 
-        return view('sector.create')
-                ->with('sector', $sec)
+        return view('sectors.create')
+                ->with('sec', $sec)
     }
 
     /**
@@ -42,13 +44,12 @@ class SectorsController extends Controller
      */
     public function store(Request $request)
     {
-        $sector = new User($request->all());
-        if($sector->save()){
+        $sec = new Sector($request->all());
+        if($sec->save()){
             return redirect('admin/sectors');
         } else {
             return view('sectors.create')
-                ->with('sector', $sec)
-                ->with('rolesOpc', $this->getRolesSelect());
+                ->with('sec', $sec)
         }
     }
 
@@ -60,10 +61,10 @@ class SectorsController extends Controller
      */
     public function show($id)
     {
-        $sec = User::find($id);
+        $sec = Sector::find($id);
         
         return view('sectors.view')
-                ->with('sector', $sec);
+                ->with('sec', $sec);
     }
 
     /**
@@ -74,10 +75,9 @@ class SectorsController extends Controller
      */
     public function edit($id)
     {
-        $sec = User::find($id);
+        $sec = Sector::find($id);
         return view('sectors.update')
-                ->with('sector', $sec)
-                ->with('rolesOpc', $this->getRolesSelect());
+                ->with('sec', $sec)
     }
 
     /**
@@ -90,14 +90,14 @@ class SectorsController extends Controller
     public function update(Request $request, $id)
     {
 
-        $sector = User::find($id);
-        $sector->nombre = $request->nombre;
+        $sec = Sector::find($id);
+        $sec->nombre = $request->nombre;
 
-        if($sector->save()){
+        if($sec->save()){
             return redirect('admin/sectors');
         } else {
             return view('sectors.update')
-                ->with('sector', $sec)
+                ->with('sec', $sec)
         }
     }
 
@@ -109,7 +109,7 @@ class SectorsController extends Controller
      */
     public function destroy($id)
     {
-        $sec = User::find($id);
+        $sec = Sector::find($id);
         if($sec->delete()){
             return redirect('admin/sectors');
         } else {
