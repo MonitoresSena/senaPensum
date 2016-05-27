@@ -24,6 +24,15 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('usuarios', 'UsuariosController');
 	Route::resource('rutas', 'RutasController');
 
+	Route::resource('Instructores', 'InstructoresController');
+	Route::resource('Competencias', 'CompetenciasController');
+	Route::resource('Resultados', 'ResultadosController');
+	Route::resource('Unidades', 'UnidadController');
+	Route::resource('Criterios', 'CriteriosController');
+	Route::resource('Procesos', 'ProcesosController');
+	Route::resource('Conocimientos', 'ConocimientosController');
+
+
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as' => 'admin.usuarios.destroy',
@@ -39,29 +48,58 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'RutasController@destroy',
 		'as' => 'admin.rutas.destroy',
 	]);
-
-
-
 	Route::get('permisos/gestionar', [
 		'uses' => 'PermisosController@index',
 		'as' => 'admin.permisos.gestionar',
 	]);
-
 	Route::get('permisos/gestionar', [
 		'uses' => 'PermisosController@index',
 		'as' => 'admin.permisos.gestionar',
 	]);
-
 	Route::post('permisos/permisosAjx', [
 		'uses' => 'PermisosController@ajx',
 		'as' => 'admin.permisos.permisosAjx',
-	]);
-	
+	]);	
 	Route::post('usuarios/storeAjx', [
 		'uses' => 'UsuariosController@storeAjx',
 		'as' => 'admin.usuarios.storeAjx'
 	]);
 
+
+	Route::get('Instructores/{id}/destroy', [
+		'uses' => 'InstructoresController@destroy',
+		'as' => 'admin.Instructores.destroy',
+	]);
+
+	Route::get('Competencias/{id}/destroy', [
+		'uses' => 'CompetenciasController@destroy',
+		'as' => 'admin.Competencias.destroy',
+	]);
+
+	Route::get('Resultados/{id}/destroy', [
+		'uses' => 'ResultadosController@destroy',
+		'as' => 'admin.Resultados.destroy',
+	]);
+
+	Route::get('Unidades/{id}/destroy', [
+		'uses' => 'UnidadController@destroy',
+		'as' => 'admin.Unidades.destroy',
+	]);
+
+	Route::get('Criterios/{id}/destroy', [
+		'uses' => 'CriteriosController@destroy',
+		'as' => 'admin.Criterios.destroy',
+	]);
+
+	Route::get('Procesos/{id}/destroy', [
+		'uses' => 'ProcesosController@destroy',
+		'as' => 'admin.Procesos.destroy',
+	]);
+
+	Route::get('Conocimientos/{id}/destroy', [
+		'uses' => 'ConocimientosController@destroy',
+		'as' => 'admin.Conocimientos.destroy',
+	]);
 });
 
 Route::get("home", [
