@@ -61,7 +61,6 @@ class HomeController extends Controller
     }
 
     public function index(){
-    	$usuario = User::find(Auth::User()->id);
-        var_dump(Session::get('rol_id'));
+        return view('home.index');
     }
 }
