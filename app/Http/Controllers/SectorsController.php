@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
- bv
 
-class RolesController extends Controller
+use App\Sector;
+
+class SectorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,10 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('roles.index');
+    {        
+        $sectors = Sector::orderBy('id', 'ASC')->paginate(5);
+        return view('sectors.index')
+                ->with('sectors', $sectores);
     }
 
     /**
@@ -25,8 +28,12 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {    
+
+        $sec = new Sector();
+
+        return view('sectors.create')
+                ->with('sec', $sec)
     }
 
     /**
@@ -37,7 +44,13 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sec = new Sector($request->all());
+        if($sec->save()){
+            return redirect('admin/sectors');
+        } else {
+            return view('sectors.create')
+                ->with('sec', $sec)
+        }
     }
 
     /**
@@ -48,7 +61,10 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        //
+        $sec = Sector::find($id);
+        
+        return view('sectors.view')
+                ->with('sec', $sec);
     }
 
     /**
@@ -59,7 +75,9 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sec = Sector::find($id);
+        return view('sectors.update')
+                ->with('sec', $sec)
     }
 
     /**
@@ -71,7 +89,16 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $sec = Sector::find($id);
+        $sec->nombre = $request->nombre;
+
+        if($sec->save()){
+            return redirect('admin/sectors');
+        } else {
+            return view('sectors.update')
+                ->with('sec', $sec)
+        }
     }
 
     /**
@@ -82,6 +109,12 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sec = Sector::find($id);
+        if($sec->delete()){
+            return redirect('admin/sectors');
+        } else {
+            throw new Exception("Error al eliminar el registro", 1);
+            
+        }
     }
 }

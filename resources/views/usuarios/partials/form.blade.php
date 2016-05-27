@@ -1,20 +1,20 @@
-{!! Form::open(['route' => (!$usuario->exists? ['admin.usuarios.store'] : ['admin.usuarios.update', $usuario->id]), 'method' => ($usuario->exists? 'PUT' : 'POST'), 'id' => 'form-usuarios']) !!}
+{!! Form::open(['route' => !$usuario->exists? 'admin.usuarios.store' : ['admin.usuarios.update', $usuario->id], 'method' => 'PUT']) !!}
 
 <div class="form-group">
 	{!! Form::label('name', 'Nombre') !!}
-	{!! Form::text('name', $usuario->name, ['class' => 'form-control required', 'placeholder' => 'Ingrese el nombre de usuario', 'autofocus' => true]) !!}
+	{!! Form::text('name', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de usuario', 'autofocus' => true]) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('email', 'E-mail') !!}
-	{!! Form::email('email', $usuario->email, ['class' => 'form-control required', 'placeholder' => 'Ingrese el correo electrónico del usuario']) !!}
+	{!! Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Ingrese el correo electrónico del usuario']) !!}
 </div>
 
 @if(!$usuario->exists)
 
 <div class="form-group">
 	{!! Form::label('password', 'Contraseña') !!}
-	{!! Form::password('password', ['class' => 'form-control required', 'placeholder' => 'Ingrese la contraseña']) !!}
+	{!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Ingrese la contraseña']) !!}
 </div>
 
 @endif
@@ -48,7 +48,6 @@
 		</div>
 	</div>
 </div>
-
 @include("usuarios.partials.modalRoles")
 
 {!! Form::close() !!}

@@ -1,22 +1,22 @@
 @extends('templates.main')
-@section('title', 'Detalles Usuario')
+@section('title', 'Detalles Area')
 @section('content')
 	<div class="page-header">
-		<h3>Ver Detalles Usuario</h3>
+		<h3>Ver Detalles Area</h3>
 	</div>
 
 	<div class="col-sm-6">		
 		<div class="panel panel-default">	
 			<div class="panel-heading">
-				{{ $usuario->name }}
+				{{ $area->nombre }}
 			</div>
 			<table class="table table-hover table-bordered">
-				<tr><th>E-mail</th><td>{{ $usuario->email }}</td></tr>
-				<tr><th>Rol</th><td>{{ $usuario->role_id }}</td></tr>
+				<tr><th>Descripción</th><td>{{ $area->descripcion }}</td></tr>
+				<tr><th>Sector</th><td>{{ $area->id_sector }}</td></tr>
 			</table>
 			<div class="panel-footer">
 				<div class="form-group">
-					<a href="{{ route('admin.usuarios.index') }}" class="btn btn-default">
+					<a href="{{ route('admin.areas.index') }}" class="btn btn-default">
 						<i class="fa fa-reply"></i> Volver
 					</a>
 				</div>

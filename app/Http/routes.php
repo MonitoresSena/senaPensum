@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
+
 	Route::resource('rutas', 'RutasController');
 
 	Route::resource('Instructores', 'InstructoresController');
@@ -31,6 +32,13 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('Criterios', 'CriteriosController');
 	Route::resource('Procesos', 'ProcesosController');
 	Route::resource('Conocimientos', 'ConocimientosController');
+
+
+	Route::resource('company', 'CompaniesController');
+	Route::resource('centers', 'CentersController');
+	Route::resource('sectors', 'SectorsController');
+	Route::resource('areas', 'AreasController');
+	Route::resource('programs', 'ProgramsController');
 
 
 	Route::get('usuarios/{id}/destroy', [
@@ -43,6 +51,7 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'RolesController@destroy',
 		'as' => 'admin.roles.destroy',
 	]);
+
 
 	Route::get('rutas/{id}/destroy',[
 		'uses' => 'RutasController@destroy',
@@ -100,6 +109,35 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'ConocimientosController@destroy',
 		'as' => 'admin.Conocimientos.destroy',
 	]);
+
+	Route::get('usuarios/{id}/destroy', [
+		'uses' => 'UsuariosController@destroy',
+		'as' => 'admin.usuarios.destroy',
+	]);
+
+	Route::get('company/{id}/destroy', [
+		'uses' => 'CompaniesController@destroy',
+		'as' => 'admin.companies.destroy',
+	]);
+
+	Route::get('center/{id}/destroy', [
+		'uses' => 'CentersController@destroy',
+		'as' => 'admin.centers.destroy',
+	]);
+
+	Route::get('sector/{id}/destroy', [
+		'uses' => 'SectorsController@destroy',
+		'as' => 'admin.sector.destroy',
+	]);
+
+	Route::get('area/{id}/destroy', [
+		'uses' => 'AreasController@destroy',
+		'as' => 'admin.usuarios.destroy',
+	]);
+	Route::get('programs/{id}/destroy', [
+		'uses' => 'ProgramsController@destroy',
+		'as' => 'admin.programs.destroy',
+	]);	
 });
 
 Route::get("home", [
