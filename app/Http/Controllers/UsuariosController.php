@@ -22,6 +22,10 @@ class UsuariosController extends Controller
      */
     public function index()
     {        
+        
+        // dd(\Request::route()->getName());
+        // exit();
+
         $usuarios = User::orderBy('id', 'DESC')->paginate(5);
         return view('usuarios.index')
                 ->with('usuarios', $usuarios);
@@ -43,7 +47,6 @@ class UsuariosController extends Controller
      */
     public function create()
     {    
-
         $usr = new User();
 
         return view('usuarios.create')

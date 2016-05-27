@@ -22,20 +22,44 @@ Route::group(['prefix' => 'admin'], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
+	Route::resource('rutas', 'RutasController');
 
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as' => 'admin.usuarios.destroy',
 	]);
 
-	Route::post('usuarios/storeAjx', [
-			'uses' => 'UsuariosController@storeAjx',
-			'as' => 'admin.usuarios.storeAjx'
-	]);
 
 	Route::get('roles/{id}/destroy',[
 		'uses' => 'RolesController@destroy',
 		'as' => 'admin.roles.destroy',
+	]);
+
+	Route::get('rutas/{id}/destroy',[
+		'uses' => 'RutasController@destroy',
+		'as' => 'admin.rutas.destroy',
+	]);
+
+
+
+	Route::get('permisos/gestionar', [
+		'uses' => 'PermisosController@index',
+		'as' => 'admin.permisos.gestionar',
+	]);
+
+	Route::get('permisos/gestionar', [
+		'uses' => 'PermisosController@index',
+		'as' => 'admin.permisos.gestionar',
+	]);
+
+	Route::post('permisos/permisosAjx', [
+		'uses' => 'PermisosController@ajx',
+		'as' => 'admin.permisos.permisosAjx',
+	]);
+	
+	Route::post('usuarios/storeAjx', [
+		'uses' => 'UsuariosController@storeAjx',
+		'as' => 'admin.usuarios.storeAjx'
 	]);
 
 });

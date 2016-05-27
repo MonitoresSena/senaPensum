@@ -9,20 +9,20 @@ use App\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Session;
 
 class HomeController extends Controller
 {
+    public function __construct(){
+        // $this->middleware('JPermisos');
+    }
+
     public function login(){
     	return view('home.login');	
     }
 
     public function entrar(Request $r){
-    	$usr = User::where("email", "=", $r->email)->first();
-    	
-    	// $reglas = [
-    	// 	'email' => $usr->email,
-    	// 	'password' => $usr->password,
-    	// ];
+    	$usr = User::where("email", "=", $r->email)->first();    	
 
     	$rules = array(
 		    'email'    => 'required|email', // make sure the email is an actual email
@@ -40,6 +40,10 @@ class HomeController extends Controller
     		];
 
     		if(Auth::attempt($userdata)){
+
+                Session::put('rol_id', $usr->rol_id);
+                Session::put('usr_id', $usr->id);
+
     			return redirect('home');
     		} else{
     			return redirect('login');
@@ -57,6 +61,7 @@ class HomeController extends Controller
     }
 
     public function index(){
-    	echo "index";
+    	$usuario = User::find(Auth::User()->id);
+        var_dump(Session::get('rol_id'));
     }
 }

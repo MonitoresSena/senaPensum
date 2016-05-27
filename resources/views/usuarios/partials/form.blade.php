@@ -109,6 +109,7 @@
 			setTimeout(function(){
 				select.select2('open');
 			}, 400);
+			
 		});
 	}
 

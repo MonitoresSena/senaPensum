@@ -17,4 +17,7 @@ class Rol extends Model
     	# return $this->belogsTo('App\Rol')
     }
 
+    public function Rutas(){
+    	return $this->belongsToMany('App\Ruta');
+    }
 }
