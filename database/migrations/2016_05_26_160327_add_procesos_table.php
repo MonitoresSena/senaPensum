@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUnidadTable extends Migration
+class AddProcesosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class AddUnidadTable extends Migration
      */
     public function up()
     {
-        Schema::create('unidad', function (Blueprint $table) {
+        Schema::create('procesos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->integer('id_resultado')->unsigned();
-            $table->foreign("id_resultado")->references("id")->on("Resultado")->onDelete("cascade");
+            $table->text('nombre');
+            $table->integer('estado');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class AddUnidadTable extends Migration
      */
     public function down()
     {
-        Schema::drop('unidad');
+        Schema::drop('procesos');
     }
 }

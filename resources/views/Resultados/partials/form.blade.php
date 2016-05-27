@@ -1,4 +1,4 @@
-{!! Form::open(['route' => (!$Result->exists? ['admin.Resultados.store'] : ['admin.Resultados.update', $Result->id]), 'method' => ($Result->exists? 'PUT' : 'POST'), 'id' => 'form-usuarios']) !!}
+{!! Form::open(['route' => (!$Result->exists? ['admin.Resultados.store'] : ['admin.Resultados.update', $Result->id]), 'method' => ($Result->exists? 'PUT' : 'POST'), 'id' => 'form-Resultados']) !!}
 
 
 <div class="form-group">

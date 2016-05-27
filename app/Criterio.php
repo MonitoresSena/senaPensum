@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Unidad extends Model
+class Criterio extends Model
 {
-    protected $table = "unidad";
+    protected $table = "Criterios";
 
     protected $fillable = [
-        'nombre', 'id_resultado'
+        'nombre', 'id_resultado','estado'
     ];
 
-	public function Resultado(){
+	public function Competencia(){
         return $this->belongsTo('App\Resultado');
     }
 }

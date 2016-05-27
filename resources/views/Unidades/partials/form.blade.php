@@ -1,4 +1,4 @@
-{!! Form::open(['route' => (!$Unid->exists? ['admin.Unidades.store'] : ['admin.Unidades.update', $Unid->id]), 'method' => ($Unid->exists? 'PUT' : 'POST'), 'id' => 'form-usuarios']) !!}
+{!! Form::open(['route' => (!$Unid->exists? ['admin.Unidades.store'] : ['admin.Unidades.update', $Unid->id]), 'method' => ($Unid->exists? 'PUT' : 'POST'), 'id' => 'form-Unidades']) !!}
 
 
 <div class="form-group">

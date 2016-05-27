@@ -20,7 +20,6 @@ class AddResultadoTable extends Migration
          
             $table->foreign("Id_competencia")->references("id")->on("Competencia")->onDelete("cascade");
 
-            $table->rememberToken();   
             $table->timestamps();
         });
     }
