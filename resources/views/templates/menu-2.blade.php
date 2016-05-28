@@ -238,6 +238,7 @@
                 <li>
                     <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
+
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-cogs"></i> Administración  <i class="fa fa-caret-down"></i>
@@ -254,7 +255,64 @@
                         </li>
                     </ul>
 
-                </li>          
+                </li>
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-building"></i> Centros <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="{{ route('admin.companies.index') }}"><i class="fa fa-plus"></i> Crear</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.companies.index') }}"><i class="fa fa-user-list"></i> Listar</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-reorder"></i> Sectores <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="{{ route('admin.sectors.index') }}"><i class="fa fa-plus"></i> Crear</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.sectors.index') }}"><i class="fa fa-user-list"></i> Listar</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-code-fork"></i> Areas <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="{{ route('admin.areas.index') }}"><i class="fa fa-plus"></i> Crear</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.areas.index') }}"><i class="fa fa-user-list"></i> Listar</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-clipboard"></i> Programas <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="{{ route('admin.programs.index') }}"><i class="fa fa-plus"></i> Crear</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.programs.index') }}"><i class="fa fa-user-list"></i> Listar</a>
+                        </li>
+                    </ul>
+                </li>       
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-graduation-cap"></i> Instructores <i class="fa fa-caret-down"></i>
