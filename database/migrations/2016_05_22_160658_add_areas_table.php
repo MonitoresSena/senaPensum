@@ -15,10 +15,8 @@ class AddAreasTable extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('nombre',50);
-
             $table->timestamps();
-        });
-        
+        });        
     }
 
     /**

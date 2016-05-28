@@ -10,10 +10,9 @@
 	{!! Form::text('descripcion', $comp->descripcion, ['class' => 'form-control', 'placeholder' => 'Ingrese descripción empresa']) !!}
 </div>
 
-
 <div class="form-group">
 	<div class="row">		
-		<div class="col-sm-6">					
+		<div class="col-sm-6">
 			<button class="btn btn-{{ $comp->exists? "primary" : "success" }} btn-block">
 				{{ $comp->exists? "Actualizar" : "Guardar" }}
 				 <i class="fa fa-floppy-o"></i>				

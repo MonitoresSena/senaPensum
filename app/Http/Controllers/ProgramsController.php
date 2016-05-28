@@ -63,7 +63,6 @@ class ProgramsController extends Controller
     public function show($id)
     {
         $prog = Program::find($id);
-        
         return view('programs.view')
                 ->with('prog', $prog);
     }

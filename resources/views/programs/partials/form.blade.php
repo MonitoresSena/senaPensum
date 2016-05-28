@@ -70,7 +70,6 @@
 	{!! Form::text('url_proyecto_formativo', $prog->url_proyecto_formativo, ['class' => 'form-control', 'placeholder' => 'Ingrese la url proyecto formativo del programa']) !!}
 </div>
 
-
 <div class="form-group">
 	<div class="row">		
 		<div class="col-sm-6">					

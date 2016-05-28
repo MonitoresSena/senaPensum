@@ -1,11 +1,9 @@
-
 {!! Form::open(['route' => (!$are->exists? ['admin.areas.store'] : ['admin.areas.update', $are->id]), 'method' => ($are->exists? 'PUT' : 'POST'), 'id' => 'form-are']) !!}
 
 <div class="form-group">
 	{!! Form::label('nombre', 'Nombre') !!}
 	{!! Form::text('nombre', $are->nombre, ['class' => 'form-control required', 'placeholder' => 'Ingrese el nombre', 'autofocus' => true]) !!}
 </div>
-
 
 <div class="form-group">
 	<div class="row">		

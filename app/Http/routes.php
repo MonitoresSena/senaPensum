@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
+
 	Route::resource('rutas', 'RutasController');
 
 	Route::resource('Instructores', 'InstructoresController');
@@ -40,6 +41,13 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('areas', 'AreasController');
 	Route::resource('programs', 'ProgramsController');
 
+	Route::resource('company', 'CompaniesController');
+	Route::resource('centers', 'CentersController');
+	Route::resource('sectors', 'SectorsController');
+	Route::resource('areas', 'AreasController');
+	Route::resource('programs', 'ProgramsController');
+
+
 	Route::get('usuarios/{id}/destroy', [
 		'uses' => 'UsuariosController@destroy',
 		'as' => 'admin.usuarios.destroy',
@@ -50,6 +58,7 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'RolesController@destroy',
 		'as' => 'admin.roles.destroy',
 	]);
+
 
 	Route::get('rutas/{id}/destroy',[
 		'uses' => 'RutasController@destroy',
@@ -113,16 +122,25 @@ Route::group(['prefix' => 'admin'], function(){
 		'as' => 'admin.usuarios.destroy',
 	]);
 
+<<<<<<< HEAD
 	Route::get('companies/{id}/destroy', [
+=======
+	Route::get('company/{id}/destroy', [
+>>>>>>> origin/alejo
 		'uses' => 'CompaniesController@destroy',
 		'as' => 'admin.companies.destroy',
 	]);
 
+<<<<<<< HEAD
 	Route::get('centers/{id}/destroy', [
+=======
+	Route::get('center/{id}/destroy', [
+>>>>>>> origin/alejo
 		'uses' => 'CentersController@destroy',
 		'as' => 'admin.centers.destroy',
 	]);
 
+<<<<<<< HEAD
 	Route::get('sectors/{id}/destroy', [
 		'uses' => 'SectorsController@destroy',
 		'as' => 'admin.sectors.destroy',
@@ -132,11 +150,25 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'AreasController@destroy',
 		'as' => 'admin.areas.destroy',
 	]);*/
+=======
+	Route::get('sector/{id}/destroy', [
+		'uses' => 'SectorsController@destroy',
+		'as' => 'admin.sector.destroy',
+	]);
+
+	Route::get('area/{id}/destroy', [
+		'uses' => 'AreasController@destroy',
+		'as' => 'admin.usuarios.destroy',
+	]);
+>>>>>>> origin/alejo
 	Route::get('programs/{id}/destroy', [
 		'uses' => 'ProgramsController@destroy',
 		'as' => 'admin.programs.destroy',
 	]);	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/alejo
 });
 
 Route::get("home", [

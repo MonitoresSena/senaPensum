@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Rol;
+ bv
 
 class RolesController extends Controller
 {
@@ -16,10 +16,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles = Rol::orderBy('id', 'DESC')
-                ->paginate(5);
-        return view('roles.index')
-                ->with('roles', $roles);
+        return view('roles.index');
     }
 
     /**
@@ -29,9 +26,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        $rol = new Rol();
-        return view('roles.create')
-                ->with('rol', $rol);
+        //
     }
 
     /**
@@ -42,13 +37,7 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        $rol = new Rol($request->all());
-        if($rol->save()){
-            return redirect('admin/roles');
-        }else{
-            return view('roles.index')
-                ->with('roles', $roles);
-        }
+        //
     }
 
     /**
@@ -59,9 +48,7 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        $rol = Rol::find($id);
-        return view('roles.view')
-                ->with('rol', $rol);
+        //
     }
 
     /**
@@ -72,9 +59,7 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        $rol = Rol::find($id);
-        return view('roles.update')
-                ->with('rol', $rol);
+        //
     }
 
     /**
@@ -86,15 +71,7 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rol = Rol::find($id);
-        $rol->nombre = $request->nombre;
-
-        if($rol->save()){
-            return redirect('admin/roles');
-        }else{
-            return view('roles.index')
-                ->with('roles', $roles);
-        }
+        //
     }
 
     /**
@@ -105,13 +82,6 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        $rol = Rol::find($id);
-        
-        if($rol->delete()){
-            return redirect('admin/roles');
-        }else{
-            throw new Exception("Error al eliminar el registro", 1);
-            
-        }
+        //
     }
 }

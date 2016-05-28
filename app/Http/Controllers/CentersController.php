@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Center;
+
 class CentersController extends Controller
 {
     /**
@@ -27,12 +28,10 @@ class CentersController extends Controller
      */
     public function create()
     {    
-
         $cent = new Center();
 
         return view('centers.create')
                 ->with('cent', $cent);
-
     }
 
     /**
@@ -51,7 +50,6 @@ class CentersController extends Controller
                 ->with('centers', $centers);
 
         }
-
     }
 
     /**

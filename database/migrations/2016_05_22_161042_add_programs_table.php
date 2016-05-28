@@ -29,7 +29,6 @@ class AddProgramsTable extends Migration
             $table->string('ocupaciones',200);
             $table->string('proyecto_formativo',100);
             $table->string('url_proyecto_formativo',200);
-
             $table->timestamps();
         });
     }

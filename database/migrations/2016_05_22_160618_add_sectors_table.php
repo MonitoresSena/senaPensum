@@ -17,7 +17,6 @@ class AddSectorsTable extends Migration
             $table->string('nombre',50);
             $table->timestamps();
         });
-
     }
 
     /**

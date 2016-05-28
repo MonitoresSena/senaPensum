@@ -19,8 +19,6 @@ class AddCentersTable extends Migration
             $table->string('descripcion');
             $table->timestamps();
         });
-
-
     }
 
     /**

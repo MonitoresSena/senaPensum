@@ -30,7 +30,6 @@ class CompaniesController extends Controller
     {    
 
         $comp = new Company();
-
         return view('companies.create')
                 ->with('comp', $comp);
     }
@@ -98,7 +97,6 @@ class CompaniesController extends Controller
         } else {
             return view('companies.update')
                 ->with('companies', $companies);
-
         }
     }
 

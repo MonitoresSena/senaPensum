@@ -1,4 +1,3 @@
-
 {!! Form::open(['route' => (!$cent->exists? ['admin.centers.store'] : ['admin.centers.update', $cent->id]), 'method' => ($cent->exists? 'PUT' : 'POST'), 'id' => 'form-cent']) !!}
 
 <div class="form-group">

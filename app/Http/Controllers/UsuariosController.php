@@ -22,7 +22,6 @@ class UsuariosController extends Controller
      */
     public function index()
     {        
-        
         // dd(\Request::route()->getName());
         // exit();
 
@@ -63,8 +62,6 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         $usuario = new User($request->all());
-        $usuario->password = bcrypt($usuario->password);
-
         if($usuario->save()){
             return redirect('admin/usuarios');
         } else {
@@ -115,7 +112,7 @@ class UsuariosController extends Controller
         $usuario = User::find($id);
         $usuario->name = $request->name;
         $usuario->email = $request->email;
-        $usuario->rol_id = $request->rol_id;
+        $usuario->role_id = $request->role_id;
 
         if($usuario->save()){
             return redirect('admin/usuarios');
@@ -142,7 +139,7 @@ class UsuariosController extends Controller
             
         }
     }
-
+    
     public function storeAjx(Request $request){
         
         $rol = new Rol();

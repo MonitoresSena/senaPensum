@@ -16,10 +16,8 @@ class AddCompaniesTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('nombre', 80);
             $table->text('descripcion');
-
             $table->timestamps();
         });
-
     }
 
     /**

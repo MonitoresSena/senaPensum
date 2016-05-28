@@ -10,7 +10,6 @@ class Center extends Model
 
    protected $fillable = ['id','nombre','descripcion','id_municipio'];
 
-  
 }
 
 
