@@ -12,7 +12,8 @@ class Resultado extends Model
         'Denominacion', 'Id_competencia', 'Estado'
     ];
 
-	public function Competencia(){
-        return $this->belongsTo('App\Competencia');
+    public function Competencia(){
+        return $this->belongsTo('App\Competencia', 'Id_competencia');
     }
+        
 }

@@ -46,6 +46,26 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('sectors', 'SectorsController');
 	Route::resource('areas', 'AreasController');
 	Route::resource('programs', 'ProgramsController');
+        
+        Route::get('unidades/{id}/documentos/listar', [
+            'uses' => 'UnidadController@listarDocumentos',
+            'as' => 'admin.unidad.documentos.listar',
+        ]);
+        
+        Route::get('Unidades/{id}/documento/proponer', [
+            'uses' => 'UnidadController@proponerDocumento',
+            'as' => 'admin.unidad.documentos.proponer',
+        ]);
+        
+        Route::post('unidad/{id}/documentos/guardarPropuesta', [
+            'uses' => 'UnidadController@guardarPropuesta',
+            'as' => 'unidad.documentos.proponer.guardar',
+        ]);
+        
+        Route::get('unidad/{uni}/{id}/documentos/aprobar', [
+            'uses' => 'UnidadController@aprobar',
+            'as' => 'admin.unidades.documentos.aprobar',
+        ]);
 
 
 	Route::get('usuarios/{id}/destroy', [
