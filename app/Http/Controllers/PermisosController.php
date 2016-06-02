@@ -11,12 +11,6 @@ use App\RolRuta;
 
 class PermisosController extends Controller
 {
-
-    public function __construct(){
-        $this->middleware('auth');
-        $this->middleware('JPermisos');
-    }
-
     public function index(){
     	$r = $this->cargarRoles();
     	return view('permisos.index')

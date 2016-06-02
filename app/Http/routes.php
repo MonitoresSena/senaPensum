@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@login');
 
 
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'JPermisos', 'MidMenu']], function(){
 	# ruta de roles
 	Route::resource('roles', 'RolesController');
 	Route::resource('usuarios', 'UsuariosController');
@@ -41,11 +41,11 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('areas', 'AreasController');
 	Route::resource('programs', 'ProgramsController');
 
-	Route::resource('company', 'CompaniesController');
-	Route::resource('centers', 'CentersController');
-	Route::resource('sectors', 'SectorsController');
-	Route::resource('areas', 'AreasController');
-	Route::resource('programs', 'ProgramsController');
+//	Route::resource('company', 'CompaniesController');
+//	Route::resource('centers', 'CentersController');
+//	Route::resource('sectors', 'SectorsController');
+//	Route::resource('areas', 'AreasController');
+//	Route::resource('programs', 'ProgramsController');
         
         Route::get('unidades/{id}/documentos/listar', [
             'uses' => 'UnidadController@listarDocumentos',
@@ -162,8 +162,18 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::get('programs/{id}/destroy', [
 		'uses' => 'ProgramsController@destroy',
 		'as' => 'admin.programs.destroy',
-	]);	
+	]);
+        
+        Route::get('/', [
+            'uses' => 'AdministracionController@index',
+            'as' => 'admin',
+        ]);        
 });
+
+//Route::get('admin', [
+//    'uses' => 'AdministracionController@index',
+//    'as' => 'admin',
+//]);
 
 Route::get("home", [
 	'uses' => "HomeController@index",

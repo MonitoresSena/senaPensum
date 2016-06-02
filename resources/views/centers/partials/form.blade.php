@@ -7,13 +7,13 @@
 
 <div class="form-group">
 	{!! Form::label('descripcion', 'Descripción') !!}
-	{!! Form::text('descripcion', $cent->descripcion, ['class' => 'form-control required', 'placeholder' => 'Ingrese el nombre del rol', 'autofocus' => true]) !!}
+	{!! Form::textarea('descripcion', $cent->descripcion, ['class' => 'form-control required', 'placeholder' => 'Ingrese el nombre del rol', 'autofocus' => true]) !!}
 </div>
 
-<div class="form-group">
+<!--<div class="form-group">
 	{!! Form::label('id_municipio', 'id_municipio') !!}
 	{!! Form::number('id_municipio', $cent->id_municipio, ['class' => 'form-control required', 'placeholder' => 'Ingrese el nombre del rol', 'autofocus' => true]) !!}
-</div>
+</div>-->
 
 <div class="form-group">
 	<div class="row">		

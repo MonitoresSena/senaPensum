@@ -13,10 +13,6 @@ use Session;
 
 class HomeController extends Controller
 {
-    public function __construct(){
-        // $this->middleware('JPermisos');
-    }
-
     public function login(){
     	return view('home.login');	
     }
@@ -44,7 +40,7 @@ class HomeController extends Controller
                 Session::put('rol_id', $usr->rol_id);
                 Session::put('usr_id', $usr->id);
 
-    			return redirect('home');
+    			return redirect('admin');
     		} else{
     			return redirect('login');
     		}

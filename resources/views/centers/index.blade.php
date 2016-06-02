@@ -14,7 +14,7 @@
 				<th>#</th>
 				<th>Nombre</th>
 				<th>Descripción</th>
-				<th>id municipio</th>
+				<th>Opciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,7 +23,6 @@
 				<td>{{ $cent->id }}</td>
 				<td>{{ $cent->nombre }}</td>
 				<td>{{ $cent->descripcion }}</td>
-				<td>{{ $cent->id_municipio}}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
 					<a title="Editar" href="{{ route('admin.centers.show', $cent->id) }}" class="btn btn-default">

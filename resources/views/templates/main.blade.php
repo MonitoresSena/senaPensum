@@ -47,7 +47,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        @include('templates.menu-2')                
+        @include('templates.menu_permisos')
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->

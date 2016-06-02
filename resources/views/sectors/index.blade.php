@@ -13,8 +13,6 @@
 			<tr>
 				<th>#</th>
 				<th>Nombre</th>
-				<th>Descripción</th>
-				<th>Centro Relacionado</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -23,8 +21,6 @@
 			<tr>
 				<td>{{ $sector->id }}</td>
 				<td>{{ $sector->nombre }}</td>
-				<td>{{ $sector->descripcion }}</td>
-				<td>{{ $sector->id_centro }}</td>
 				<!-- <td></td> -->
 				<td class="text-center">
 					<a title="Editar" href="{{ route('admin.sectors.show', $sector->id) }}" class="btn btn-default">

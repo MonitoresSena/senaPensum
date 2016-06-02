@@ -1,8 +1,13 @@
 {!! Form::open(['route' => (!$sec->exists? ['admin.sectors.store'] : ['admin.sectors.update', $sec->id]), 'method' => ($sec->exists? 'PUT' : 'POST'), 'id' => 'form-sectors']) !!}
 
 <div class="form-group">
+    {!! Form::label('centro', 'Centro') !!}
+    {!! Form::select('centro_id', $centros, '', ['class' => 'form-control required', 'data-select-two' => true, 'id' => 'centro']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('nombre', 'Nombre') !!}
-	{!! Form::text('nombre', $sec->nombre, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del sector', 'autofocus' => true]) !!}
+	{!! Form::text('nombre', $sec->nombre, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del sector']) !!}
 </div>
 
 <div class="form-group">
@@ -20,4 +25,11 @@
 		</div>
 	</div>
 </div>
+<script>
+jQuery(function(){
+    setTimeout(function(){
+        jQuery("#centro").select2('open');
+    }, 100);
+});    
+</script>
 {!! Form::close() !!}

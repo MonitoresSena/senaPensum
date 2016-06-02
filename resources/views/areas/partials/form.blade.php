@@ -1,4 +1,8 @@
 {!! Form::open(['route' => (!$are->exists? ['admin.areas.store'] : ['admin.areas.update', $are->id]), 'method' => ($are->exists? 'PUT' : 'POST'), 'id' => 'form-are']) !!}
+<div class="form-group">
+    {!! Form::label('sector', 'Sector') !!}
+    {!! Form::select('sector', $sectores, '', ['class' => 'form-control required', 'data-select-two' => true, 'id' => 'sector']) !!}
+</div>
 
 <div class="form-group">
 	{!! Form::label('nombre', 'Nombre') !!}
@@ -20,6 +24,13 @@
 		</div>
 	</div>
 </div>
+<script>
+jQuery(function(){
+    setTimeout(function(){
+        jQuery("#sector").select2('open');
+    }, 100);
+});    
+</script>
 
 {!! Form::close() !!}
 

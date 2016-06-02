@@ -31,9 +31,16 @@ class SectorsController extends Controller
     {    
 
         $sec = new Sector();
-
+        $centrosM = \App\Center::all();
+        $centros = [];
+        
+        foreach($centrosM AS $c){
+            $centros[$c->id] = $c->nombre;
+        }        
+        
         return view('sectors.create')
-                ->with('sec', $sec);
+                ->with('sec', $sec)
+                ->with('centros', $centros);
     }
 
     /**

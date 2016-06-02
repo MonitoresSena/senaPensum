@@ -32,9 +32,12 @@ class areasController extends Controller
     {    
 
         $are = new Area();
-
+        $sectorM = \App\Sector::all();
+        $sectores = [];
+        foreach($sectorM AS $s){ $sectores[$s->id] = $s->nombre; }
         return view('areas.create')
-                ->with('are', $are);
+                ->with('are', $are)
+                ->with('sectores', $sectores);
     }
 
     /**
@@ -46,6 +49,7 @@ class areasController extends Controller
     public function store(Request $request)
     {
         $are = new Area($request->all());
+        
         if($are->save()){
             return redirect('admin/areas');
         } else {

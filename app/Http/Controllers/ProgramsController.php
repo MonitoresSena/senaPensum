@@ -31,9 +31,13 @@ class ProgramsController extends Controller
     {    
 
         $prog = new program();
-
+        $areasM = \App\Area::all();
+        $areas = [];
+        foreach($areasM AS $a){ $areas[$a->id] = $a->nombre; }
+        
         return view('programs.create')
-                ->with('prog', $prog);
+                ->with('prog', $prog)
+                ->with('areas', $areas);
     }
 
     /**
@@ -45,7 +49,14 @@ class ProgramsController extends Controller
     public function store(Request $request)
     {
         $prog = new program($request->all());
+        
         if($prog->save()){
+            
+            $dll = new \App\Dllareaprog();
+            $dll->id_area = $request->area;
+            $dll->id_programa = $prog->id;
+            $dll->save();
+            
             return redirect('admin/programs');
         } else {
             return view('programs.create')
