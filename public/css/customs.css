@@ -1,0 +1,9 @@
+.col-options a{
+    margin-right: 5px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+#page-wrapper{
+	padding-top: 30px !important;
+}
