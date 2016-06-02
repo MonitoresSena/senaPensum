@@ -46,7 +46,9 @@ Route::group(['prefix' => 'admin'], function(){
 	Route::resource('sectors', 'SectorsController');
 	Route::resource('areas', 'AreasController');
 	Route::resource('programs', 'ProgramsController');
-        
+    Route::resource('dllComProgs', 'dllComProgController');
+    Route::resource('dllComInsts', 'dllComInstsController');
+
         Route::get('unidades/{id}/documentos/listar', [
             'uses' => 'UnidadController@listarDocumentos',
             'as' => 'admin.unidad.documentos.listar',
@@ -154,6 +156,17 @@ Route::group(['prefix' => 'admin'], function(){
 		'uses' => 'SectorsController@destroy',
 		'as' => 'admin.sectors.destroy',
 	]);
+
+	Route::get('dllComProgs/{id}/destroy', [
+		'uses' => 'dllComProgController@destroy',
+		'as' => 'admin.dllComProgs.destroy',
+	]);
+	Route::get('dllComInsts/{id}/destroy', [
+		'uses' => 'dllComInstsController@destroy',
+		'as' => 'admin.dllComInsts.destroy',
+	]);
+
+
 
 	/*Route::get('areas/{id}/destroy', [
 		'uses' => 'AreasController@destroy',

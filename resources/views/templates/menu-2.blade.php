@@ -309,6 +309,9 @@
                             <a href="{{ route('admin.programs.index') }}"><i class="fa fa-plus"></i> Crear</a>
                         </li>
                         <li>
+                            <a href="{{ route('admin.dllComProgs.index') }}"><i class="fa fa-plus"></i> enlazar competencia</a>
+                        </li>
+                        <li>
                             <a href="{{ route('admin.programs.index') }}"><i class="fa fa-user-list"></i> Listar</a>
                         </li>
                     </ul>
@@ -320,6 +323,9 @@
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <a href="{{ route('admin.Instructores.index') }}"><i class="fa fa-list"></i> Listar Instructores</a>
+                        </li>
+                         <li>
+                            <a href="{{ route('admin.dllComInsts.index') }}"><i class="fa fa-list"></i>enlazar competencias</a>
                         </li>
                         <li>
                             <a href="{{ route('admin.Instructores.create') }}"><i class="fa fa-user-plus"></i> Registrar Instructores</a>
